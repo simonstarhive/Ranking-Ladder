@@ -1,0 +1,12 @@
+@import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+/*html,body,#root{
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    color-scheme:dark;
+}*/

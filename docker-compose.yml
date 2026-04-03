@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  db:
+    image: mariadb:11
+    container_name: tennis-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ranking_ladder_db
+      MYSQL_USER: ranking_user
+      MYSQL_PASSWORD: StrongPassword123!
+    ports:
+      - "3307:3306"
+
+  backend:
+    build: ./ranking-ladder-backend
+    container_name: tennis-backend
+    depends_on:
+      - db
+    environment:
+      DB_URL: jdbc:mariadb://db:3306/ranking_ladder_db
+      DB_USERNAME: ranking_user
+      DB_PASSWORD: StrongPassword123!
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin123
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./RankingLadder-frontend
+    container_name: tennis-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"

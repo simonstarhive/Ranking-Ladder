@@ -3,11 +3,6 @@
 A full-stack web application for managing tennis rankings and match scores for clubs and organizations.
 Designed for scalability, real-world usage, and multi-organization expansion.
 
----
-
-##  Live Demo
-
-https://starhivehydra.ddns.net/rankingladder/
 
 ---
 
